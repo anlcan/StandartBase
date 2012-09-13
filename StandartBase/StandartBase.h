@@ -2,12 +2,15 @@
 //  StandartBase.h
 //  StandartBase
 //
-//  Created by Anil Can Baykal on 9/4/12.
+//  Created by Anil Can Baykal on 9/9/12.
 //  Copyright (c) 2012 Anil Can Baykal. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef StandartBase_StandartBase_h
+#define StandartBase_StandartBase_h
 
-@interface StandartBase : NSObject
+#import "Debug.h"
+#import "NSObject+Util.h"
+#import "StandartBaseViewController.h"
 
-@end
+#endif

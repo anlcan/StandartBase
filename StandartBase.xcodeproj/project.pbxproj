@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		96DD047A15F565E1005D09B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD047915F565E1005D09B6 /* Foundation.framework */; };
-		96DD047F15F565E3005D09B6 /* StandartBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96DD047E15F565E3005D09B6 /* StandartBase.h */; };
-		96DD048115F565E4005D09B6 /* StandartBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD048015F565E4005D09B6 /* StandartBase.m */; };
+		96DD048915F56861005D09B6 /* StandartBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD048815F56861005D09B6 /* StandartBaseViewController.m */; };
+		96DD049515F570CB005D09B6 /* NSObject+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD049415F570C9005D09B6 /* NSObject+Util.m */; };
+		96DF000615FC6509002A8D7F /* StandartBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 96DF000215FC64B7002A8D7F /* StandartBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DF000715FC65D8002A8D7F /* libStandartBase.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96DD047615F565E1005D09B6 /* libStandartBase.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,7 +21,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				96DD047F15F565E3005D09B6 /* StandartBase.h in CopyFiles */,
+				96DF000715FC65D8002A8D7F /* libStandartBase.a in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -29,8 +31,12 @@
 		96DD047615F565E1005D09B6 /* libStandartBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStandartBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DD047915F565E1005D09B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96DD047D15F565E2005D09B6 /* StandartBase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StandartBase-Prefix.pch"; sourceTree = "<group>"; };
-		96DD047E15F565E3005D09B6 /* StandartBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StandartBase.h; sourceTree = "<group>"; };
-		96DD048015F565E4005D09B6 /* StandartBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StandartBase.m; sourceTree = "<group>"; };
+		96DD048715F56861005D09B6 /* StandartBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandartBaseViewController.h; sourceTree = "<group>"; };
+		96DD048815F56861005D09B6 /* StandartBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandartBaseViewController.m; sourceTree = "<group>"; };
+		96DD049215F570C9005D09B6 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		96DD049315F570C9005D09B6 /* NSObject+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Util.h"; sourceTree = "<group>"; };
+		96DD049415F570C9005D09B6 /* NSObject+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Util.m"; sourceTree = "<group>"; };
+		96DF000215FC64B7002A8D7F /* StandartBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StandartBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +79,12 @@
 		96DD047B15F565E1005D09B6 /* StandartBase */ = {
 			isa = PBXGroup;
 			children = (
-				96DD047E15F565E3005D09B6 /* StandartBase.h */,
-				96DD048015F565E4005D09B6 /* StandartBase.m */,
+				96DF000215FC64B7002A8D7F /* StandartBase.h */,
+				96DD049215F570C9005D09B6 /* Debug.h */,
+				96DD049315F570C9005D09B6 /* NSObject+Util.h */,
+				96DD049415F570C9005D09B6 /* NSObject+Util.m */,
+				96DD048715F56861005D09B6 /* StandartBaseViewController.h */,
+				96DD048815F56861005D09B6 /* StandartBaseViewController.m */,
 				96DD047C15F565E2005D09B6 /* Supporting Files */,
 			);
 			path = StandartBase;
@@ -90,6 +100,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		96DF000515FC6501002A8D7F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96DF000615FC6509002A8D7F /* StandartBase.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		96DD047515F565E1005D09B6 /* StandartBase */ = {
 			isa = PBXNativeTarget;
@@ -98,6 +119,7 @@
 				96DD047215F565E1005D09B6 /* Sources */,
 				96DD047315F565E1005D09B6 /* Frameworks */,
 				96DD047415F565E1005D09B6 /* CopyFiles */,
+				96DF000515FC6501002A8D7F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -139,7 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DD048115F565E4005D09B6 /* StandartBase.m in Sources */,
+				96DD048915F56861005D09B6 /* StandartBaseViewController.m in Sources */,
+				96DD049515F570CB005D09B6 /* NSObject+Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +256,7 @@
 				96DD048615F565E4005D09B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
