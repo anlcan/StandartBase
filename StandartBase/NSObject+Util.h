@@ -16,7 +16,7 @@
 #define _loadNibNamed(x)		(x *)[[[NSBundle mainBundle] loadNibNamed:_className(x) owner:nil options:nil] lastObject]
 #define _ownNibNamed(x)			(x *)[[[NSBundle mainBundle] loadNibNamed:_className(x) owner:self options:nil] lastObject]
 
-#define _create(x)		(x*)[[x alloc] initWithNibName:_className(x) bundle:nil]
+#define _create(x)		(x*)[[[x alloc] initWithNibName:_className(x) bundle:nil] autorelease]
 
 
 //==============================================================================

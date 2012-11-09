@@ -42,7 +42,7 @@
 
 
 
-@implementation StandartBaseViewController (NavigatinBarItem)
+@implementation UIViewController (NavigatinBarItem)
 -(UIBarButtonItem*)buttWithTitle:(NSString *)title forSelector:(SEL)sel{
     
     UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:title
@@ -73,5 +73,9 @@
 -(void)leftItemClicked:(id)sender{
     // base imp
 }
+
+
+
+//==============================================================================
 
 @end
