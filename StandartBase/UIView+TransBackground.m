@@ -10,4 +10,18 @@
 
 @implementation UIView (TransBackground)
 
+-(void)addTransBackground{
+    UIView * v = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
+    v.backgroundColor = [UIColor blackColor];
+    v.alpha = 0.7;
+    v.tag = kTransBackground; 
+    
+    [self addSubview:v];
+    [self sendSubviewToBack:v];
+}
+
+-(void)removerTransBackground{
+    [[self viewWithTag:kTransBackground] removeFromSuperview]; 
+}
+
 @end

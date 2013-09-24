@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define kTransBackground	155111
+
+
 @interface UIView (TransBackground)
+
+-(void)addTransBackground;
+-(void)removerTransBackground;
 
 @end

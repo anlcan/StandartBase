@@ -17,7 +17,11 @@
 						[self.navigationController pushViewController:nextView animated:YES];
 
 
-#define MODAL(x)		[self.navigationController presentModalViewController:_create(x) animated:YES];
+#define MODAL(x)		[self.navigationController presentViewController:_create(x) animated:YES completion:nil];
+
+#define MODAL_NAV(x)		x * nextView = _create(x);\
+							UINavigationController * _nav = [[UINavigationController alloc] initWithRootViewController:nextView];\
+							[self.navigationController presentViewController:_nav animated:YES completion:nil];
 
 #define MODAL_BASE(x)	[self.navigationController presentModalViewController:_create(x) animated:YES];
 
@@ -44,10 +48,22 @@
 @end
 
 //==============================================================================
+@interface UIViewController (UITableView)
+-(void)addNoDataMessage:(NSString *)message;
+
+@end
+
+//==============================================================================
 @interface UIViewController(NavigationBarItem)
 
 -(void)rightButtonWithTitle:(NSString *)title;
 -(void)leftButtonWithTitle:(NSString *)title;
+
+-(UIBarButtonItem *)rightButtonWithImage:(NSString *)imageName;
+-(UIBarButtonItem *)leftButtonWithImage:(NSString *)imageName;
+
+-(void)activateRightItem;
+-(void)stopRightActivity;
 
 -(void)rightItemClicked:(id)sender;
 -(void)leftItemClicked:(id)sender;

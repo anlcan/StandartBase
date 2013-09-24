@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define TAG_OVERLAY	1039
+
 @interface UIView (ProgressOverlay)
+
+-(void)addOverylay:(NSString *)msg;
+-(void)dismissOverlay;
 
 @end
