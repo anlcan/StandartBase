@@ -7,8 +7,6 @@
 #import <objc/runtime.h>
 
 
-//==============================================================================
-#define _className(x)		        [NSString stringWithCString:class_getName([x class]) encoding:NSUTF8StringEncoding]
 
 
 //==============================================================================
@@ -16,15 +14,7 @@
 #define _loadNibNamed(x)		(x *)[[[NSBundle mainBundle] loadNibNamed:_className(x) owner:nil options:nil] lastObject]
 #define _ownNibNamed(x)			(x *)[[[NSBundle mainBundle] loadNibNamed:_className(x) owner:self options:nil] lastObject]
 
-#if __has_feature(objc_arc)
 
-#define _create(x)		(x*)[[x alloc] initWithNibName:_className(x) bundle:nil]
-
-#else
-
-#define _create(x)		(x*)[[[x alloc] initWithNibName:_className(x) bundle:nil] autorelease]
-
-#endif
 
 //==============================================================================
 #define _updateOrigin(o, x, y)	CGRect f = o.frame; f.origin = CGPointMake(x,y); o.frame = f;

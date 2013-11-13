@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+//==============================================================================
+#define _className(x)		        [NSString stringWithCString:class_getName([x class]) encoding:NSUTF8StringEncoding]
+
+#if __has_feature(objc_arc)
+
+#define _create(x)		(x*)[[x alloc] initWithNibName:_className(x) bundle:nil]
+
+#else
+
+#define _create(x)		(x*)[[[x alloc] initWithNibName:_className(x) bundle:nil] autorelease]
+
+#endif
 
 //==============================================================================
 // VIEW CONTROLLER CONVENIENCE
@@ -16,14 +28,18 @@
 #define PUSH_BASE(x)	x * nextView = _create(x);\
 						[self.navigationController pushViewController:nextView animated:YES];
 
+#define PUSH_NAV(x)		x * nextView = _create(x);\
+							UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:nextView];\
+							[self.navigationController pushViewController:nav animated:YES];
 
-#define MODAL(x)		[self.navigationController presentViewController:_create(x) animated:YES completion:nil];
+#define MODAL(x)		[self.navigationController presentModalViewController:_create(x) animated:YES];
 
 #define MODAL_NAV(x)		x * nextView = _create(x);\
-							UINavigationController * _nav = [[UINavigationController alloc] initWithRootViewController:nextView];\
-							[self.navigationController presentViewController:_nav animated:YES completion:nil];
+							UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:nextView];\
+							[self.navigationController presentViewController:nav animated:YES completion:nil];
 
-#define MODAL_BASE(x)	[self.navigationController presentModalViewController:_create(x) animated:YES];
+
+#define MODAL_BASE(x)	[self.navigationController presentViewController:_create(x) animated:YES completion:nil];
 
 #define DISMISS()	    if ( [self respondsToSelector:@selector(presentingViewController)])\
 							[self.presentingViewController dismissModalViewControllerAnimated:YES];\
@@ -48,22 +64,10 @@
 @end
 
 //==============================================================================
-@interface UIViewController (UITableView)
--(void)addNoDataMessage:(NSString *)message;
-
-@end
-
-//==============================================================================
 @interface UIViewController(NavigationBarItem)
 
 -(void)rightButtonWithTitle:(NSString *)title;
 -(void)leftButtonWithTitle:(NSString *)title;
-
--(UIBarButtonItem *)rightButtonWithImage:(NSString *)imageName;
--(UIBarButtonItem *)leftButtonWithImage:(NSString *)imageName;
-
--(void)activateRightItem;
--(void)stopRightActivity;
 
 -(void)rightItemClicked:(id)sender;
 -(void)leftItemClicked:(id)sender;
