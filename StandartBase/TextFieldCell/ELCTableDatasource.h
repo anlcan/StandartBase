@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "ELCTextFieldCell.h"
 
+@interface NSArray (NSIndexPath)
+
+-(id)get:(NSIndexPath*)path;
+
+@end
+
 @interface ELCTableDatasource : NSObject<UITableViewDataSource, ELCTextFieldDelegate>{
     
     NSMutableArray * _textFields;
@@ -20,6 +26,7 @@
 @property (nonatomic, strong)NSArray * keyboardTypes;
 @property (nonatomic, strong)NSMutableDictionary * values;
 @property (nonatomic, strong)NSArray * toolTips;
+@property (nonatomic, strong)NSArray * secures;
 
 @property (nonatomic, strong)NSArray * maxLengths;
 

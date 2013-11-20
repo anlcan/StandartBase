@@ -7,7 +7,28 @@
 //
 
 #import "ELCTableDatasource.h"
+@implementation NSArray(NSIndexPath)
+-(id)get:(NSIndexPath *)path{
+    static BOOL isGrouped = YES;
+    
+    if (isGrouped && self.count > path.section){
+        NSObject* item = [self objectAtIndex:path.section];
+        if ([item isMemberOfClass:[NSArray class]]){
+            isGrouped = YES;
+            return [(NSArray*)item objectAtIndex:path.row];
+        } else {
+            isGrouped = NO;
+        }
+    }
+    
+    return [self objectAtIndex:path.row];
+    
+}
 
+@end
+
+
+//==============================================================================
 @implementation ELCTableDatasource
 
 
@@ -40,7 +61,7 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString* cellIdentifier = @"";
+    static NSString* cellIdentifier = @"ELCTextFieldCell";
     
     ELCTextFieldCell *cell = (ELCTextFieldCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
@@ -69,6 +90,11 @@
     
     if (self.maxLengths != nil && self.maxLengths.count > indexPath.row){
         cell.maxLength = [[self.maxLengths objectAtIndex:indexPath.row] intValue];
+    }
+    
+    cell.rightTextField.secureTextEntry = NO; 
+    if (self.secures != nil && self.secures.count > indexPath.row){
+        cell.rightTextField.secureTextEntry = [[self.secures objectAtIndex:indexPath.row] boolValue];
     }
     
 //    if (self.toolTips != nil && self.toolTips.count > indexPath.row && [[self.toolTips objectAtIndex:indexPath.row] length] > 0){
