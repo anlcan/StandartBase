@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
 //==============================================================================
 #define _className(x)		        [NSString stringWithCString:class_getName([x class]) encoding:NSUTF8StringEncoding]
@@ -42,9 +43,9 @@
 #define MODAL_BASE(x)	[self.navigationController presentViewController:_create(x) animated:YES completion:nil];
 
 #define DISMISS()	    if ( [self respondsToSelector:@selector(presentingViewController)])\
-							[self.presentingViewController dismissModalViewControllerAnimated:YES];\
+							[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];\
 						else\
-							[self.parentViewController dismissModalViewControllerAnimated:YES];
+							[self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 
 #define POP()			[self.navigationController popViewControllerAnimated:YES];
 

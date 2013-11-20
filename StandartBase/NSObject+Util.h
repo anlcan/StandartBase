@@ -21,9 +21,4 @@
 #define _updateOriginX(o, x) _updateOrigin(o, x, o.frame.origin.y); 
 #define _updateOriginY(o, y) _updateOrigin(o, o.frame.origin.x, y); 
 
-@interface NSObject(Util)
 
--(id)safePerformSelector:(SEL)aSelector withObject:(id)arg;
--(id)safePerformSelector:(SEL)aSelector withObject:(id)object1 withObject:(id)object2;
-
-@end
