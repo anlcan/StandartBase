@@ -11,6 +11,15 @@
 @implementation ELCTableDatasource
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.values = [NSMutableDictionary dictionaryWithCapacity:3];
+    }
+    return self;
+}
+
 
 //==============================================================================
 -(void)setValue:(id)value atIndex:(int)index{
@@ -96,6 +105,8 @@
 //    
     return NO;
 }
+
+
 
 -(void)validate:(UITextField*)textField{
     
