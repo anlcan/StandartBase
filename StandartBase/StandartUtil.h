@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface StandartUtil : NSObject
-
++(NSString*)computeSHA256DigestForString:(NSString*)input;
 @end
