@@ -67,9 +67,17 @@
         cell.rightTextField.keyboardType = [[self.keyboardTypes objectAtIndex:indexPath.row] intValue];
     }
     
-    //if (self.maxLengths != nil && self.maxLengths.count > indexPath.row){
-    //    cell.maxLength = [[self.maxLengths objectAtIndex:indexPath.row] intValue];
-    //}
+    if (self.maxLengths != nil && self.maxLengths.count > indexPath.row){
+        cell.maxLength = [[self.maxLengths objectAtIndex:indexPath.row] intValue];
+    }
+    
+//    if (self.toolTips != nil && self.toolTips.count > indexPath.row && [[self.toolTips objectAtIndex:indexPath.row] length] > 0){
+//        cell.rightTextField.rightView = [UIButton buttonWithType:UIButtonTypeInfoDark];
+//        cell.rightTextField.rightViewMode = UITextFieldViewModeAlways;
+//    } else {
+//        cell.rightTextField.rightView = nil; 
+//
+//    }
     
 }
 

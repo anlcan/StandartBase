@@ -14,11 +14,13 @@
     NSMutableArray * _textFields;
     
 }
-@property (nonatomic, weak) UITextField * activeField;
+@property (nonatomic, weak) UITextField * activeField; //currently first responding field
 @property (nonatomic, strong)NSArray * labels;
 @property (nonatomic, strong)NSArray * placeholders;
 @property (nonatomic, strong)NSArray * keyboardTypes;
 @property (nonatomic, strong)NSMutableDictionary * values;
+@property (nonatomic, strong)NSArray * toolTips;
+
 @property (nonatomic, strong)NSArray * maxLengths;
 
 

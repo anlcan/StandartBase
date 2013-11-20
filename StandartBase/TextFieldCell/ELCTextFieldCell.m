@@ -49,6 +49,7 @@
 		self.rightTextField.returnKeyType = UIReturnKeyDone;
         [self addSubview:_rightTextField];
         
+        self.maxLength = -1;
         //Try to mimic the style of UITableViewCellStyleValue2 if inited with that style
         if (style == UITableViewCellStyleValue2) {
             //If iOS 7 and set up as UITableViewCellStyleValue2
@@ -117,6 +118,9 @@
 {
 	NSString *textString = self.rightTextField.text;
 	textString = [textString stringByReplacingCharactersInRange:range withString:string];
+    if ( self.maxLength != -1 && textString.length > self.maxLength){
+        return NO;
+    }
 	
 	if([_delegate respondsToSelector:@selector(textFieldCell:updateTextLabelAtIndexPath:string:)]) {
 		[_delegate textFieldCell:self updateTextLabelAtIndexPath:_indexPath string:textString];
