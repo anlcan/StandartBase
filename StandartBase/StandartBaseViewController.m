@@ -29,13 +29,21 @@
 }
 
 
+-(void)startAnimateRightItem{
+    _toolbarActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _toolbarActivityIndicator.hidesWhenStopped = YES;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_toolbarActivityIndicator];
+    [_toolbarActivityIndicator startAnimating];
+}
+
+-(void)stopAnimateRightItem{
+    [_toolbarActivityIndicator stopAnimating];
+    _toolbarActivityIndicator = nil;
+}
 
 //==============================================================================
 
 @end
-
-
-
 
 
 @implementation UIViewController (NavigatinBarItem)
@@ -61,6 +69,7 @@
     UIBarButtonItem *leftButton = [self buttWithTitle:title forSelector:@selector(leftItemClicked:)];
     self.navigationItem.leftBarButtonItem = leftButton;
 }
+
 
 
 -(void)rightItemClicked:(id)sender{

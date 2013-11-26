@@ -60,6 +60,7 @@
 //==============================================================================
 @interface StandartBaseViewController : UIViewController {
  
+    UIActivityIndicatorView * _toolbarActivityIndicator;
     
 }
 @end
