@@ -61,8 +61,10 @@
 @interface StandartBaseViewController : UIViewController {
  
     UIActivityIndicatorView * _toolbarActivityIndicator;
-    
 }
+
+-(void)startAnimateRightItem;
+-(void)stopAnimateRightItem;
 @end
 
 //==============================================================================
