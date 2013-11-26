@@ -27,8 +27,13 @@
 @property (nonatomic, strong)NSMutableDictionary * values;
 @property (nonatomic, strong)NSArray * toolTips;
 @property (nonatomic, strong)NSArray * secures;
+@property (nonatomic, strong)NSArray * images;
 
 @property (nonatomic, strong)NSArray * maxLengths;
+
+
+@property (nonatomic, strong) UIColor * labelColor;
+@property (nonatomic, strong) UIFont * labelFont;
 
 
 /* accessing values */

@@ -39,12 +39,13 @@
 		
 		self.leftLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.leftLabel.backgroundColor = [UIColor clearColor];
-        self.leftLabel.textAlignment = NSTextAlignmentRight;
+        self.leftLabel.textAlignment = NSTextAlignmentLeft;
 		[self addSubview:_leftLabel];
 		
 		self.rightTextField = [[ELCInsetTextField alloc] initWithFrame:CGRectZero];
 		self.rightTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		self.rightTextField.delegate = self;
+        self.rightTextField.textAlignment = NSTextAlignmentLeft;
         //Use Done for all of them.
 		self.rightTextField.returnKeyType = UIReturnKeyDone;
         [self addSubview:_rightTextField];
@@ -81,18 +82,21 @@
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
+    int padding = 15;
 	CGRect origFrame = self.contentView.frame;
+    NSInteger imageWidth = 0;
+    if (self.imageView.image != nil) {
+        imageWidth = self.imageView.image.size.width + 15;
+    }
+    
 	if (_leftLabel.text != nil) {
         _leftLabel.hidden = NO;
-		_leftLabel.frame = CGRectMake(origFrame.origin.x, origFrame.origin.y, 125, origFrame.size.height-1);
-		_rightTextField.frame = CGRectMake(origFrame.origin.x+130, origFrame.origin.y, origFrame.size.width-140, origFrame.size.height);
+		_leftLabel.frame = CGRectMake(origFrame.origin.x + imageWidth+ padding, origFrame.origin.y, 125, origFrame.size.height-1);
+		_rightTextField.frame = CGRectMake(origFrame.origin.x+ imageWidth+ 130, origFrame.origin.y, origFrame.size.width-140, origFrame.size.height);
 	} else {
 		_leftLabel.hidden = YES;
-		NSInteger imageWidth = 0;
-		if (self.imageView.image != nil) {
-			imageWidth = self.imageView.image.size.width + 5;
-		}
-		_rightTextField.frame = CGRectMake(origFrame.origin.x+imageWidth+10, origFrame.origin.y, origFrame.size.width-imageWidth-20, origFrame.size.height-1);
+
+		_rightTextField.frame = CGRectMake(origFrame.origin.x+imageWidth+padding, origFrame.origin.y, origFrame.size.width-imageWidth-(padding * 2), origFrame.size.height-1);
 	}
     [self setNeedsDisplay];
 }

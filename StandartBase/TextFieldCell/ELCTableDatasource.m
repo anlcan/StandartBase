@@ -66,6 +66,12 @@
     ELCTextFieldCell *cell = (ELCTextFieldCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[ELCTextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        if ( self.labelColor != nil)
+            cell.leftLabel.textColor = self.labelColor;
+        
+        if ( self.labelFont != nil){
+            cell.leftLabel.font = self.labelFont; 
+        }
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -96,6 +102,10 @@
     if (self.secures != nil && self.secures.count > indexPath.row){
         cell.rightTextField.secureTextEntry = [[self.secures objectAtIndex:indexPath.row] boolValue];
     }
+    
+    if ([self.images count] > indexPath.row){
+        cell.imageView.image = [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
+    } 
     
 //    if (self.toolTips != nil && self.toolTips.count > indexPath.row && [[self.toolTips objectAtIndex:indexPath.row] length] > 0){
 //        cell.rightTextField.rightView = [UIButton buttonWithType:UIButtonTypeInfoDark];
