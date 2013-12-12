@@ -51,7 +51,7 @@
 
 
 // APPLICATION CONVENIENCE
-#define APPDELEGATE		((AppDelegate*)[UIApplication sharedApplication].delegate)
+#define APPDELEGATE		([UIApplication sharedApplication].delegate)
 
 //
 // add to compiler  #if ! __has_feature(objc_arc)
